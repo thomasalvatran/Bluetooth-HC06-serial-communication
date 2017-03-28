@@ -7,12 +7,10 @@
 //#include "beaglebone_gpio.h"
 #include "../Beaglebone/beaglebone_gpio.h"
 #include <errno.h>   /* Error number definitions */
-#include <termios.h> /* POSIX terminal control definitions */
+// #include <termios.h> /* POSIX terminal control definitions */
 
 #define DEVICE "/dev/ttyO4"
-//#define BAUDRATE B115200
-#define BAUDRATE B9600  //for Bluetooth HC 06
-//stty -F /dev/ttyO2 9600 raw -echo (setup termninal for /dev/ttyO4)
+#define BAUDRATE B115200
 
 int main(int argc, char *argv[]) {
 	volatile void *gpio_addr = NULL;
@@ -23,14 +21,14 @@ int main(int argc, char *argv[]) {
 	unsigned int reg;
 	int fd = open("/dev/mem", O_RDWR);
 
-	printf("Mapping %X - %X (size: %X)\n", GPIO1_START_ADDR, GPIO1_END_ADDR, GPIO1_SIZE);
+	printf("Mapping %X - %X (size: %X)\n", GPIO_START_ADDR, GPIO_END_ADDR, GPIO_SIZE);
 
-	gpio_addr = mmap(0, GPIO1_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO1_START_ADDR);
+	gpio_addr = mmap(0, GPIO_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO_START_ADDR);
 
 	gpio_oe_addr = gpio_addr + GPIO_OE;
 	gpio_setdataout_addr = gpio_addr + GPIO_SETDATAOUT;
 	gpio_cleardataout_addr = gpio_addr + GPIO_CLEARDATAOUT;
-	gpio_dataout_addr = gpio_addr + GPIO_DATAOUT;
+        gpio_dataout_addr = gpio_addr + GPIO_DATAOUT;
 
 	if(gpio_addr == MAP_FAILED) {
 		printf("Unable to map GPIO\n");
@@ -46,40 +44,40 @@ int main(int argc, char *argv[]) {
 	reg = reg & (0xFFFFFFFF ^ LED12 ^ LED15); //0x01 ^ 0xFF = 0xFE one's complement ~ 2 LED OFF
 	*gpio_oe_addr = reg;
 	printf("GPIO1 configuration: %X\n", reg);           //GPIO1_28
+        //stty -F /dev/ttyO2 9600 raw -echo (setup termninal for /dev/ttyO4)
+        int fd1 = open(DEVICE, O_RDWR | O_NOCTTY);  /* open for read/write */
 
-    int fd1 = open(DEVICE, O_RDWR | O_NOCTTY);  /* open for read/write */
-    
-	if(fd == -1)
-	{
-		printf("file %s either doesnot exit, or locked by another process\n", DEVICE);
-		exit(-1);
-	}
-	int act, numBytes ;
-	char ch, write_buf[10], read_buf[10];
-	printf("Start blinking from Bluetooth H06\n");
+    if(fd1 == -1)
+    {
+        printf("file %s either doesnot exit, or locked by another process\n", DEVICE);
+        exit(-1);
+    }
+    int act, numBytes ;
+    char ch, write_buf[10], read_buf[10];
+    printf("Start blinking from Bluetooth H06\n");
 	while(1) {
-		printf("In loop wait for data from ttyO4 to read...\n");
-		numBytes = read(fd1, read_buf, sizeof(read_buf));
-		if (numBytes < 0)
-		{
-			printf("Failed to read %d\n", numBytes);
+	     printf("In loop wait for data from ttyO4 to read...\n");
+	    numBytes = read(fd1, read_buf, sizeof(read_buf));
+	    if (numBytes < 0)
+	    {
+	        printf("Failed to read %d\n", numBytes);
 	        //break;
-		}
-		printf("Read_buff  numBytes = %d data = %s\n", numBytes, read_buf);
+	    }
+        printf("Read_buff  numBytes = %d data = %s\n", numBytes, read_buf);
 
-		if (*read_buf == '1')
-		{
-			*gpio_dataout_addr = LED15 ^ LED12;
-			printf("LED ON\n");	
-			numBytes = write(fd1, "LED is ON", 9);
-		}
+	    if (*read_buf == '1')
+	    {
+	        *gpio_dataout_addr = LED15 ^ LED12;
+	        printf("LED ON\n");	
+		numBytes = write(fd1, "LED is ON", 9);
+	    }
 
-		else
-		{
-			*gpio_dataout_addr = (LED15 ^ LED12 ^ 0xFFFFFFFF);
-			printf("LED OFF\n");
-			numBytes = write(fd1, "LED is OFF", 10);	
-		}
+        else
+        {
+            *gpio_dataout_addr = (LED15 ^ LED12 ^ 0xFFFFFFFF);
+            printf("LED OFF\n");
+	    numBytes = write(fd1, "LED is OFF", 10);	
+        }
 
 		sleep(1);
 	}
