@@ -16,7 +16,9 @@ b6f32000-b6f34000 rw-s 4804c000 00:05 2292 /dev/mem
 volatile void *gpio_addr = NULL;
 int fd = open("/dev/mem", O_RDWR); //file descriptor
 
-volatile void *gpio_addr = NULL; int fd = open("/dev/mem", O_RDWR); //file descriptorgpio_addr = mmap(0, GPIO_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED< fd, GPIO_START_ADDR) //using mmap file to I/O
+volatile void *gpio_addr = NULL; int fd = open("/dev/mem", O_RDWR); //file descriptor
+gpio_addr = mmap(0, GPIO_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED< fd, GPIO_START_ADDR) //using mmap to map VA to PA 
+            // VA - virtual address = mmap ( PA -physical address)
 
-//Address of gpio_oe_addr is Base address + Offset 
+//Address of gpio_oe_addr is Base address + Offset. Offset is the same for VA and PA.
 gpio_oe_addr = gpio_addr + GPIO_OE;
