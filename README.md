@@ -1,6 +1,8 @@
-# README for Bluetooth HC06 serial communication with Android Applications
+# Bluetooth HC06 serial communication with Android Applications
 
 C code to commnucate with Android app to turn LED on/off
+Java code using on Android Studio
+C++ code using Qt creator
 
 Bluetooth HC06 serial connected to Serial Port /dev/ttyO4 instead of bluetooth default /dev/rfcomm*. Read this serial port to read and write into the hardware. This bluetooth is paired with Android application to send and receive command. Currently only uses one byte to turn on /off devices but it can support hundreds commands to do anything because it is serial data, we can write string of bytes to do different things. 
 Android is Bluetooth_HC06.apk is included here, just download Bluetooth_HC06.apk to the phone then install it. 
