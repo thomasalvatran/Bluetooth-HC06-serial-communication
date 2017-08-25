@@ -38,7 +38,7 @@ gpio_addr = mmap(0, GPIO_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO_STAR
 //Address of gpio_oe_addr is Base address + Offset. Offset is the same for VA and PA.<br>
 gpio_oe_addr = gpio_addr + GPIO_OE; 
 
-Screenshot:
+Applicatons screenshots:
 <!--![Android using Android studio for Java](readmeImages/AndroidBT.png)-->
 
 <table border="0" align="center" width="500">
