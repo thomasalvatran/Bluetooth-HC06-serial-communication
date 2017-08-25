@@ -41,7 +41,6 @@ gpio_oe_addr = gpio_addr + GPIO_OE;
 Screenshot:
 <!--![Android using Android studio for Java](readmeImages/AndroidBT.png)-->
 
-
 <table border="0" align="center" width="500">
   <tr>
     <td><img src="readmeImages/AndroidBT.png" width="100" title= "Android using Android Studio for Java"> </td>
@@ -49,3 +48,24 @@ Screenshot:
     <td><img src="readmeImages/AndroidQT.png" width="100" title= "Android using Qt creator for C++"></td>
   </tr>
 </table>
+
+Target:<br>
+sudo ./gpiotestHC06<br>
+[sudo] password for ubuntu:<br>
+Mapping 4804C000 - 4804DFFF (size: 1FFF)<br>
+GPIO mapped to 0xb6f38000<br>
+GPIO OE mapped to 0xb6f38134<br>
+GPIO SETDATAOUTADDR mapped to 0xb6f38194<br>
+GPIO CLEARDATAOUT mapped to 0xb6f38190<br>
+GPIO1 configuration: E60EFFFF<br>
+Start blinking from Bluetooth H06<br>
+In loop wait for data from ttyO4 to read...<br>
+Read_buff  numBytes = 1 data = 0<br>
+Command not recognizedThe input and output queues have been flushed<br>
+In loop wait for data from ttyO4 to read...<br>
+Read_buff  numBytes = 1 data = 1<br>
+LED ON<br>
+The input and output queues have been flushed<br>
+In loop wait for data from ttyO4 to read..<br>.
+Read_buff  numBytes = 1 data = 0<br>
+LED OFF<br>
