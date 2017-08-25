@@ -1,2 +1,37 @@
-#READNE for Bluetooth HC06 serial
+#README for Bluetooth HC06 serial
+
 C code to commnucate with Android app to turn LED on/off
+
+Bluetooth HC06 serial connected to Serial Port /dev/ttyO4 instead of bluetooth default /dev/rfcomm*. Read this serial port to read and write into the hardware. This bluetooth is paired with Android application to send and receive command. Currently only uses one byte to turn on /off devices but it can support hundreds commands to do anything because it is serial data, we can write string of bytes to do different things. 
+Android is Bluetooth_HC06.apk is included here, just download Bluetooth_HC06.apk to the phone then install it. 
+Source code of this Bluetooth_HC06.apk using Android Studio (Java) https://github.com/thomasalvatran/Aug2017.git
+Source code of Qt C++ Bluetooth.apk using Qt Creator (C++) https://github.com/thomasalvatran/Aug2017_Bluetooth_QT.git
+Setup App and target: http://www.tovantran.com/blog/?p=2945
+
+Need to pair with with Bluetooth HC06, its default PIN is 1234 but it can be changed pincode in AT command mode (AT+PINxxxx) then connect to it to turn on relay or LEDs that connected to this GPIO address. The block diagram is at 
+https://www.dropbox.com/s/vu0vp4hy2oeh4tm/HC-06-Bluetooth-Control-Target.pdf?dl=0"
+There are 2 approaches: the simple is using mmap to manipulate GPIO's register via /dev/mem and second approach is sysfs using import/export into /sys/class/gpio. The following code is for mmap approach.
+
+#define GPIO_START_ADDR 0x4804C000 
+#define GPIO_OE 0x134 //register for GPIO Output Enable offset 0x134 GPIO_START_ADDRESS 
+can be found p. 173 GPIO1 0x4804_C000 of Techincal Reference Manual AM335x ARM Cortex-A8 Microprocessors (MPUs) Technical Reference Manual (Rev. I)
+
+Also, it can be found from /proc/iomem
+4804c000-4804cfff : /ocp/gpio@4804c000
+4804c000-4804cfff : 4804c000.gpio
+
+Also, when program is running it can be found /proc/$pid/maps
+b6f32000-b6f34000 rw-s 4804c000 00:05 2292 /dev/mem
+
+#define GPIO START ADDR 0x4804C000
+#define GPIO_OE 0x134 //register for GPIO Output Enable offset 0x134
+
+volatile void *gpio_addr = NULL;   //volatile because this I/O device
+int fd = open("/dev/mem", O_RDWR); //file descriptor
+
+volatile void *gpio_addr = NULL; int fd = open("/dev/mem", O_RDWR); //file descriptor
+gpio_addr = mmap(0, GPIO_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED< fd, GPIO_START_ADDR) //using mmap to map VA to PA 
+            // VA - virtual address = mmap ( PA -physical address)
+
+//Address of gpio_oe_addr is Base address + Offset. Offset is the same for VA and PA.
+gpio_oe_addr = gpio_addr + GPIO_OE; 
