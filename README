@@ -1,5 +1,8 @@
 Bluetooth HC06 serial connected to Serial Port /dev/ttyO4 instead of bluetooth default /dev/rfcomm*. Read this serial port to read and write into the hardware. This bluetooth is paired with Android application to send and receive command. Currently only uses one byte to turn on /off devices but it can support hundreds commands to do anything because it is serial data, we can write string of bytes to do different things. 
-Android is Bluetooth_HC06.apk is included here, just download Bluetooth_HC06.apk to the phone then install it. Source code of this apk https://github.com/thomasalvatran/Aug2017.git
+Android is Bluetooth_HC06.apk is included here, just download Bluetooth_HC06.apk to the phone then install it. 
+Source code of this Bluetooth_HC06.apk using Android Studio https://github.com/thomasalvatran/Aug2017.git
+Source code of Qt C++ Bluetooth.apk using Qt Creator https://github.com/thomasalvatran/Aug2017_Bluetooth_QT.git
+Setup App and target: http://www.tovantran.com/blog/?p=2945
 Need to pair with with Bluetooth HC06, its default PIN is 1234 but it can be changed pincode in AT command mode (AT+PINxxxx) then connect to it to turn on relay or LEDs that connected to this GPIO address. The block diagram is at 
 https://www.dropbox.com/s/vu0vp4hy2oeh4tm/HC-06-Bluetooth-Control-Target.pdf?dl=0"
 There are 2 approaches: the simple is using mmap to manipulate GPIO's register via /dev/mem and second approach is sysfs using import/export into /sys/class/gpio. The following code is for mmap approach.
