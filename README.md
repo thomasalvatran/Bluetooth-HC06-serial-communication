@@ -1,4 +1,4 @@
-# Bluetooth HC06 serial communication with Android Applications
+# Bluetooth HC06 serial communication
 
 C code to commnucate with Android app to turn LED on/off<br>
 Java code using on Android Studio<br>
