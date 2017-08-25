@@ -49,7 +49,7 @@ Screenshot:
   </tr>
 </table>
 
-Target:<br>
+Target is ARM received data from Application via Bluetooth HC06:<br>
 sudo ./gpiotestHC06<br>
 [sudo] password for ubuntu:<br>
 Mapping 4804C000 - 4804DFFF (size: 1FFF)<br>
