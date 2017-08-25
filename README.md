@@ -32,8 +32,8 @@ volatile void *gpio_addr = NULL;   //volatile because this I/O device<br>
 int fd = open("/dev/mem", O_RDWR); //file descriptor<br>
 
 volatile void *gpio_addr = NULL; int fd = open("/dev/mem", O_RDWR); //file descriptor<br>
-gpio_addr = mmap(0, GPIO_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED< fd, GPIO_START_ADDR) //using mmap to map VA to PA <br>
-            // VA - virtual address = mmap ( PA -physical address)<br>
+gpio_addr = mmap(0, GPIO_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, GPIO_START_ADDR); //using mmap to map VA to PA <br>
+                                                                        // VA - virtual address = mmap ( PA -physical address)<br>
 
 //Address of gpio_oe_addr is Base address + Offset. Offset is the same for VA and PA.<br>
 gpio_oe_addr = gpio_addr + GPIO_OE; 
