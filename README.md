@@ -75,6 +75,8 @@ LED OFF<br>
 On this HC06 serial bluetooth, there is a RED LED when it is flashed that means it is not paired with any devices. When this RED LED is solid ON it means it has paired with the device. This way we can find the MAC address of HC06 bluetooth based on this LED in case we have many HC06 devices on the network. Its default speed is 9600 baud.
 
 It works well with PL2303HX USB to TTL UART RS-232 connected to COM port(device driver for windows called Prolific USB-to-SerialComm). You need putty or Tera Term to connect with HC06, make sure has the same COM port as in Windows's Device Manager (Windows->control panel->system->device manager).
+There is a time out between keystrokes/characters sending to HC06 which result that AT command has no effect since HC06 will not return error the only we know if it works by issue AT cmd AT+NAME to see the name is changed. So we can make it to work by writing all the AT commands in the notepad then just copy from notepad and paste into the terminal the command that we want HC06 to execute. It works great this way.
+
 Enter AT at terminal it should return OK then it works. For example change name of HC-06 to new name enter AT+NAMExyz where xyz is the new name of HC06 bluetooth device. This is standard AT commands. To test the PL2303HX cable by 
 connected the TXD and RXD it will echo what type from terminal.
 
