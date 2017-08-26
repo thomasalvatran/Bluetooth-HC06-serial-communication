@@ -1,6 +1,6 @@
 # Bluetooth HC06 serial communication
 
-Basically it replaces RS-232(UART) cable by going into the air using Bluetooth.
+Basically it replaces RS-232(UART) cable by going into the air using Bluetooth.<br>
 C code to commnicate with Android app to turn LED on/off<br>
 Java code using on Android Studio<br>
 C++ code using Qt creator<br>
