@@ -69,3 +69,5 @@ The input and output queues have been flushed<br>
 In loop wait for data from ttyO4 to read..<br>.
 Read_buff  numBytes = 1 data = 0<br>
 LED OFF<br>
+
+On this HC06 serial bluetooth, there is a RED LED when it is flashed that means it is not paired with any devices. When this RED LED is solid ON it means it has paired with the device. This way we can find the MAC address of HC06 bluetooth based on this LED in case we have many HC06 devices on the network. It works best at 9600 baud.
