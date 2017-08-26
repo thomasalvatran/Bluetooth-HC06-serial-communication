@@ -101,3 +101,4 @@ connected the TXD and RXD it will echo what type from terminal.
 </table>
 
 <img src="readmeImages/HC06.png" width="400" title="HC06 and PL2303HX USB to Serial" >
+Total cost: $3.00 (HC06) and $2.00(USB to Serial) = $5.00 (order from ebay.com or amazon.com)
