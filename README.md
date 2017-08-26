@@ -70,4 +70,31 @@ In loop wait for data from ttyO4 to read..<br>.
 Read_buff  numBytes = 1 data = 0<br>
 LED OFF<br>
 
-On this HC06 serial bluetooth, there is a RED LED when it is flashed that means it is not paired with any devices. When this RED LED is solid ON it means it has paired with the device. This way we can find the MAC address of HC06 bluetooth based on this LED in case we have many HC06 devices on the network. It works best at 9600 baud.
+On this HC06 serial bluetooth, there is a RED LED when it is flashed that means it is not paired with any devices. When this RED LED is solid ON it means it has paired with the device. This way we can find the MAC address of HC06 bluetooth based on this LED in case we have many HC06 devices on the network. Its default speed is 9600 baud.
+
+It works well with PL2303HX USB to TTL UART RS-232 connected to COM port(device driver for windows called Prolific USB-to-SerialComm). You need putty or Tera Term to connect with HC06, make sure has the same COM port as in Windows's Device Manager (Windows->control panel->system->device manager).
+Enter AT at terminal it should return OK then it works. For example change name of HC-06 to new name enter AT+NAMExyz where xyz is the new name of HC06 bluetooth device. This is standard AT commands. Test the PL2303HX by 
+connected the TXD and RXD it will echo what type from terminal.
+
+ 
+<table border=0 width="100" border="0">
+  <tr>
+    <td>Wire color HC 06</td>
+    <td>PL2303HX USB</td>
+  </tr>
+  <tr>
+    <td>red      5v<br>
+    black   GND<br>
+    white   TXD<br>
+    green   RXD<br>
+    (TxD connected Rxd)
+    </td>
+    <td>red      5v<br>
+    black   GND<br>
+    green   RXD<br>
+    white   TXD<br>
+    (RxD connected TxD)
+    </td>
+  </tr>
+</table>
+
