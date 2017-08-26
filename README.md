@@ -1,6 +1,7 @@
 # Bluetooth HC06 serial communication
 
-C code to commnucate with Android app to turn LED on/off<br>
+Basically it replaces RS-232(UART) cable by going into the air using Bluetooth.
+C code to commnicate with Android app to turn LED on/off<br>
 Java code using on Android Studio<br>
 C++ code using Qt creator<br>
 
@@ -98,3 +99,4 @@ connected the TXD and RXD it will echo what type from terminal.
   </tr>
 </table>
 
+<img src="readmeImages/HC06.png" width="400" title="HC06 and PL2303HX USB to Serial" >
