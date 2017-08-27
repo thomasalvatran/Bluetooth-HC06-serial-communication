@@ -2,9 +2,9 @@
 
 Basically it replaces the serial/RS-232(UART) cable by going into the air using Bluetooth. It has the same interface as serial port: 5 v, GND, TxD and RxD.<br>
 
-C code to commnicate with Android app to turn LED on/off<br>
-Application Java code using on Android Studio<br>
-Application C++ code using Qt creator<br>
+C code for BSP ARM target to commnicate with Android app to turn LED on/off<br>
+Android application Java code using on Android Studio<br>
+Android application C++ code using Qt creator<br>
 
 Bluetooth HC06 serial connected to Serial Port /dev/ttyO4 instead of bluetooth default /dev/rfcomm*. Read this serial port to read and write into the hardware. This bluetooth is paired with Android application to send and receive command. Currently only uses one byte to turn on /off devices but it can support hundreds commands to do anything because it is serial data, we can write string of bytes to do different things. 
 Android is Bluetooth_HC06.apk is included here, just download Bluetooth_HC06.apk to the phone then install it. <bR>
