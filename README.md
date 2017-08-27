@@ -80,6 +80,7 @@ There is a time out between keystrokes/characters sending to HC06 which result t
 
 Enter AT at terminal it should return OK then it works. For example change name of HC-06 to new name enter AT+NAMExyz where xyz is the new name of HC06 bluetooth device. This is standard AT commands. To test the PL2303HX cable by 
 connected the TXD and RXD it will echo what type from terminal.
+http://www.instructables.com/id/AT-command-mode-of-HC-05-Bluetooth-module/
 
  
 <table border=0 width="100" border="0">
