@@ -1,6 +1,6 @@
 # Bluetooth HC06 serial communication
 
-Basically it replaces the serial/RS-232(UART) cable by going into the air using Bluetooth. It has the same interface: 5v, GND, Tx and Rx.<br>
+Basically it replaces the serial/RS-232(UART) cable by going into the air using Bluetooth. It has the same interface as serial port: 5 v, GND, TxD and RxD.<br>
 
 C code to commnicate with Android app to turn LED on/off<br>
 Application Java code using on Android Studio<br>
