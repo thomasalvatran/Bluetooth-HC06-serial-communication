@@ -85,7 +85,7 @@ connected the TXD and RXD it will echo what type from terminal.
 <table border=0 width="100" border="0">
   <tr>
     <td>Wire color HC 06</td>
-    <td>PL2303HX USB</td>
+    <td>PL2303HX USB to Serial</td>
   </tr>
   <tr>
     <td>red      5v<br>
