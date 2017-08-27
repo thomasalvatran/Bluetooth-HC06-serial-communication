@@ -79,7 +79,7 @@ It works well with PL2303HX USB to TTL UART RS-232 connected to COM port(device 
 There is a time out between keystrokes/characters sending to HC06 which result that AT command has no effect since HC06 will not return error code the only we know if it works by issue AT cmd again AT+NAME to see the name is changed. So we can make it to work by writing all the AT commands in the notepad then just copy from notepad and paste into the terminal the command that we want HC06 to execute. It works great this way.
 
 Enter AT at terminal it should return OK then it works. For example change name of HC-06 to new name enter AT+NAMExyz where xyz is the new name of HC06 bluetooth device. This is standard AT commands. To test the PL2303HX cable by 
-connected the TXD and RXD it will echo what type from terminal.
+connected the TXD and RXD it will echo what type from terminal.<br>
 http://www.instructables.com/id/AT-command-mode-of-HC-05-Bluetooth-module/
 
  
