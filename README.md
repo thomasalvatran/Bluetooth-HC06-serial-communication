@@ -91,7 +91,7 @@ connected the TXD and RXD it will echo what type from terminal.
     black   GND<br>
     white   TXD<br>
     green   RXD<br>
-    (TxD connected Rxd)
+    (TxD connected RxD)
     </td>
     <td>red      5v<br>
     black   GND<br>
