@@ -6,6 +6,8 @@ C code for BSP ARM target to commnicate with Android app to turn LED on/off<br>
 Android application Java code using on Android Studio<br>
 Android application C++ code using Qt creator<br>
 
+<img src="readmeImages/BTApps.png" title="Bluetooth and Apps" >
+
 Bluetooth HC06 serial connected to Serial Port /dev/ttyO4 instead of bluetooth default /dev/rfcomm*. Read this serial port to read and write into the hardware. This bluetooth is paired with Android application to send and receive command. Currently only uses one byte to turn on /off devices but it can support hundreds commands to do anything because it is serial data, we can write string of bytes to do different things. 
 Android is Bluetooth_HC06.apk is included here, just download Bluetooth_HC06.apk to the phone then install it. <bR>
 Source code of this Bluetooth_HC06.apk using Android Studio (Java) https://github.com/thomasalvatran/Aug2017.git <br>
