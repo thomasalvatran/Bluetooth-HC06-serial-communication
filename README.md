@@ -1,7 +1,7 @@
 # Bluetooth HC06 serial communication
 
-Basically it replaces the RS-232 serial port(UART) cable by going into the air using Bluetooth. It has the same interface as serial port: 5 v, GND, TxD and RxD. The code is using on <b>Radio Frequency Communications (RFCOMM) protocol is a reliable
-streams-based protocol </b>. It provides roughly the same service and reliability guarantees as TCP. The Bluetooth specification states that it was designed to emulate RS-232 serial ports<br>
+Basically it replaces the RS-232 serial port(UART) cable by going into the air using Bluetooth. It has the same interface as serial port: 5 v, GND, TxD and RxD. The code is using on <u>Radio Frequency Communications (RFCOMM) protocol is a reliable
+streams-based protocol </u>. It provides roughly the same service and reliability guarantees as TCP. The Bluetooth specification states that it was designed to emulate RS-232 serial ports<br>
 <table border=0 width="100" border="0">
   <tr>
     <td>Protocol</td>
