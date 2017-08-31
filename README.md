@@ -38,9 +38,9 @@ streams-based protocol. It provides roughly the same service and reliability gua
 </table>
 
 
-C code for BSP ARM target to commnicate with Android app to turn LED on/off<br>
-Android application Java code using on Android Studio<br>
-Android application C++ code using Qt creator<br>
+- C code for BSP ARM target to commnicate with Android app to turn LED on/off<br>
+- Android application Java code using on Android Studio<br>
+- Android application C++ code using Qt creator<br>
 
 <img src="readmeImages/BTApps.png" title="Bluetooth and Apps" >
 
